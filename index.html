@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学物理公式总纲 — 完整参考手册</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"></script>
+<style>
+:root {
+  --c1: #2563eb; --c1l: #eff6ff; --c1b: #bfdbfe;
+  --c2: #dc2626; --c2l: #fef2f2; --c2b: #fecaca;
+  --c3: #ea580c; --c3l: #fff7ed; --c3b: #fed7aa;
+  --c4: #7c3aed; --c4l: #f5f3ff; --c4b: #ddd6fe;
+  --c5: #0891b2; --c5l: #ecfeff; --c5b: #a5f3fc;
+  --c6: #059669; --c6l: #ecfdf5; --c6b: #a7f3d0;
+  --c7: #d97706; --c7l: #fffbeb; --c7b: #fde68a;
+  --c8: #db2777; --c8l: #fdf2f8; --c8b: #fbcfe8;
+  --bg: #f1f5f9;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text2: #64748b;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.04);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+/* ── Top Bar ── */
+.topbar {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+  color: #fff;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky; top:0; z-index:20;
+  box-shadow: 0 2px 12px rgba(30,64,175,0.3);
+}
+.topbar h1 { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; }
+.topbar .stats { font-size: 0.8rem; opacity: 0.9; }
+.topbar .stats strong { font-size: 1.1rem; }
+
+/* ── Layout ── */
+.layout { display: flex; max-width: 1400px; margin: 0 auto; }
+.sidebar {
+  position: sticky; top: 68px;
+  width: 240px; min-width: 240px;
+  height: calc(100vh - 68px);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 20px 12px;
+  z-index: 10;
+}
+.sidebar nav a {
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text2);
+  text-decoration: none;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+  margin-bottom: 3px;
+  border-left: 3px solid transparent;
+}
+.sidebar nav a:hover { background: #f1f5f9; color: var(--text); }
+.sidebar nav a.active { background: #eff6ff; color: #2563eb; border-left-color: #2563eb; font-weight: 600; }
+.sidebar nav a .dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.sidebar .footer-info {
+  margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 0.7rem; color: var(--text2); line-height: 1.7;
+}
+
+/* ── Main ── */
+.main { flex:1; padding: 28px 32px 80px; min-width: 0; }
+
+/* ── Section ── */
+.section {
+  margin-bottom: 40px;
+  scroll-margin-top: 84px;
+}
+.section-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px;
+}
+.section-icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: #fff; flex-shrink: 0;
+}
+.section-title {
+  font-size: 1.35rem; font-weight: 700;
+}
+.section-badge {
+  display: inline-block; font-size: 0.7rem; padding: 3px 10px;
+  border-radius: 20px; font-weight: 600;
+}
+
+/* ── Tables ── */
+.table-card {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.table-card table {
+  width: 100%; border-collapse: collapse; font-size: 0.875rem;
+}
+.table-card thead th {
+  padding: 12px 14px; font-size: 0.73rem;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  font-weight: 700; text-align: left; white-space: nowrap;
+  color: #fff;
+}
+.table-card tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+.table-card tbody tr:last-child td { border-bottom: none; }
+.table-card tbody tr:hover { background: #f8fafc; }
+.table-card .col-id { width: 52px; text-align: center; font-weight: 700; font-size: 0.8rem; }
+.table-card .col-math { min-width: 260px; }
+.table-card .col-note { color: var(--text2); font-size: 0.8rem; }
+
+/* ── Process Table (full-width special) ── */
+.process-table {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+.process-table table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 800px;
+}
+.process-table thead th {
+  background: #1e40af; color: #fff;
+  padding: 12px 10px; font-weight: 700;
+  font-size: 0.78rem; letter-spacing: 0.04em;
+  text-align: center; white-space: nowrap;
+}
+.process-table tbody td {
+  padding: 11px 10px; text-align: center;
+  border-bottom: 1px solid #f1f5f9;
+}
+.process-table tbody tr:last-child td { border-bottom: none; }
+.process-table tbody tr:nth-child(even) { background: #f8fafc; }
+.process-table tbody tr:hover { background: #eff6ff; }
+.process-table .proc-name { font-weight: 700; }
+
+/* ── Diagram ── */
+.diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.diagram {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  text-align: center;
+  border-top: 3px solid #e2e8f0;
+}
+.diagram svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.diagram .caption {
+  font-size: 0.78rem; color: var(--text2); margin-top: 10px;
+  font-weight: 500;
+}
+
+/* ── Full-width highlight card ── */
+.highlight-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+  border: 2px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+.highlight-card .hl-label {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: #2563eb; font-weight: 700;
+  margin-bottom: 6px;
+}
+.highlight-card .hl-title {
+  font-size: 1rem; font-weight: 700; color: #1e40af; margin-bottom: 10px;
+}
+.highlight-card .math { overflow-x: auto; }
+.highlight-card .hl-note {
+  font-size: 0.8rem; color: #64748b; margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid #bfdbfe;
+}
+
+/* ── Back to top ── */
+.back-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #2563eb; color: #fff; border: none;
+  font-size: 1.3rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+  z-index: 20;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+}
+.back-top.show { opacity: 1; pointer-events: auto; }
+.back-top:hover { transform: translateY(-2px); }
+
+/* ── Section color themes ── */
+.sec-1 .section-icon { background: #2563eb; } .sec-1 .section-badge { background: #dbeafe; color: #1e40af; }
+.sec-2 .section-icon { background: #dc2626; } .sec-2 .section-badge { background: #fee2e2; color: #991b1b; }
+.sec-3 .section-icon { background: #ea580c; } .sec-3 .section-badge { background: #ffedd5; color: #9a3412; }
+.sec-4 .section-icon { background: #7c3aed; } .sec-4 .section-badge { background: #ede9fe; color: #5b21b6; }
+.sec-5 .section-icon { background: #0891b2; } .sec-5 .section-badge { background: #cffafe; color: #155e75; }
+.sec-6 .section-icon { background: #059669; } .sec-6 .section-badge { background: #d1fae5; color: #065f46; }
+.sec-7 .section-icon { background: #d97706; } .sec-7 .section-badge { background: #fef3c7; color: #92400e; }
+.sec-8 .section-icon { background: #db2777; } .sec-8 .section-badge { background: #fce7f3; color: #9d174d; }
+
+/* ── Mobile ── */
+.menu-btn { display:none; }
+@media (max-width: 860px) {
+  .topbar { padding: 12px 16px; }
+  .topbar h1 { font-size: 1rem; }
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: fixed; left: -260px; top: 56px; bottom: 0;
+    width: 250px; transition: left 0.25s; z-index: 30;
+  }
+  .sidebar.open { left: 0; }
+  .menu-btn {
+    display: flex; position: fixed; top: 8px; left: 8px; z-index: 31;
+    width: 38px; height: 38px; border-radius: 8px;
+    background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 1.1rem;
+    align-items: center; justify-content: center; cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+  .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 28; }
+  .overlay.show { display: block; }
+  .main { padding: 16px 10px 60px; }
+  .diagram-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 1.1rem; }
+}
+@media print {
+  .topbar, .sidebar, .back-top, .menu-btn, .overlay { display: none !important; }
+  body { background: #fff; }
+  .main { padding: 0; }
+  .table-card, .diagram, .highlight-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<button class="menu-btn" onclick="toggleSidebar()" aria-label="菜单">☰</button>
+
+<!-- ─── TOP BAR ─── -->
+<header class="topbar">
+  <h1>📘 大学物理 · 公式总纲</h1>
+  <div class="stats">覆盖 PDF P1–P18 · 共 <strong>52</strong> 条公式 · 8 大板块 · 10 幅示意图</div>
+</header>
+
+<div class="layout">
+
+<!-- ─── SIDEBAR ─── -->
+<aside class="sidebar" id="sidebar">
+  <nav>
+    <a href="#sec-1" onclick="closeSidebar()"><span class="dot" style="background:#2563eb"></span> 静电场 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">13</span></a>
+    <a href="#sec-2" onclick="closeSidebar()"><span class="dot" style="background:#dc2626"></span> 恒定磁场 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">5</span></a>
+    <a href="#sec-3" onclick="closeSidebar()"><span class="dot" style="background:#ea580c"></span> 热力学基础 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">13</span></a>
+    <a href="#sec-4" onclick="closeSidebar()"><span class="dot" style="background:#7c3aed"></span> 气体动理论 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">7</span></a>
+    <a href="#sec-5" onclick="closeSidebar()"><span class="dot" style="background:#0891b2"></span> 狭义相对论 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">1</span></a>
+    <a href="#sec-6" onclick="closeSidebar()"><span class="dot" style="background:#059669"></span> 流体力学 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">5</span></a>
+    <a href="#sec-7" onclick="closeSidebar()"><span class="dot" style="background:#d97706"></span> 刚体转动 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">6</span></a>
+    <a href="#sec-8" onclick="closeSidebar()"><span class="dot" style="background:#db2777"></span> 例题补充 <span style="margin-left:auto;font-size:0.7rem;color:#94a3b8">2</span></a>
+  </nav>
+  <div class="footer-info">
+    按 PDF 页码 P1→P18 顺序排列<br>
+    含手绘 SVG 示意图<br>
+    KaTeX 渲染数学公式
+  </div>
+</aside>
+
+<!-- ─── MAIN ─── -->
+<main class="main">
+
+<!-- ═══════════════════════════ 1. 静电场 ═══════════════════════════ -->
+<section class="section sec-1" id="sec-1">
+  <div class="section-head">
+    <div class="section-icon">⚡</div>
+    <div>
+      <h2 class="section-title" style="color:#2563eb">一、静电场</h2>
+      <span class="section-badge">PDF P1–P2 · 含导体、介质、电容、能量</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#2563eb;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#2563eb">1</td>
+          <td><strong>导体静电平衡</strong></td>
+          <td class="col-math">\[\vec{E}_{\text{内}} = 0,\quad \vec{E}_{\text{表面}} \perp \text{表面}\]</td>
+          <td class="col-note">导体内部场强为零，表面场强垂直于表面</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">2</td>
+          <td><strong>电极化强度</strong></td>
+          <td class="col-math">\[\vec{P} = \varepsilon_0(\varepsilon_r - 1)\vec{E} = \varepsilon_0 \chi_e \vec{E}\]</td>
+          <td class="col-note">各向同性介质，\(\chi_e = \varepsilon_r - 1\) 为极化率</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">3</td>
+          <td><strong>电位移矢量</strong></td>
+          <td class="col-math">\[\vec{D} = \varepsilon_0\vec{E} + \vec{P} = \varepsilon_r\varepsilon_0\vec{E} = \varepsilon\vec{E}\]</td>
+          <td class="col-note">\(\varepsilon = \varepsilon_r\varepsilon_0\) 为绝对介电常数</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">4</td>
+          <td><strong>有介质高斯定理</strong></td>
+          <td class="col-math">\[\oint_S \vec{D} \cdot d\vec{S} = \sum Q_{\text{自由}}\]</td>
+          <td class="col-note">只含自由电荷，不含束缚电荷</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">5</td>
+          <td><strong>真空高斯定理</strong></td>
+          <td class="col-math">\[\oint_S \vec{E} \cdot d\vec{S} = \frac{1}{\varepsilon_0}\sum Q\]</td>
+          <td class="col-note">闭合曲面电通量 = 面内总电荷/\(\varepsilon_0\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">6</td>
+          <td><strong>环路定理（无旋）</strong></td>
+          <td class="col-math">\[\oint_L \vec{E} \cdot d\vec{l} = 0\]</td>
+          <td class="col-note">静电场是保守场</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">7</td>
+          <td><strong>电势定义</strong></td>
+          <td class="col-math">\[V_P = \int_P^\infty \vec{E} \cdot d\vec{l}\]</td>
+          <td class="col-note">无穷远为零点；\(U_{AB} = V_A - V_B\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">8</td>
+          <td><strong>电容定义</strong></td>
+          <td class="col-math">\[C = \frac{Q}{V}\;\text{(孤立)};\quad C = \frac{Q}{U}\;\text{(电容器)}\]</td>
+          <td class="col-note">平行板 \(C_0 = \varepsilon_0 S/d\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">9</td>
+          <td><strong>电容串并联</strong></td>
+          <td class="col-math">\[\frac{1}{C} = \sum\frac{1}{C_i}\;\text{(串)};\quad C = \sum C_i\;\text{(并)}\]</td>
+          <td class="col-note">串联分压电荷等；并联等压分电荷</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">10</td>
+          <td><strong>含介质板电容</strong></td>
+          <td class="col-math">\[C = \frac{\varepsilon_0 S}{d - t + t/\varepsilon_r} = \frac{\varepsilon_0 S}{d - t(1 - 1/\varepsilon_r)}\]</td>
+          <td class="col-note">\(t\) = 介质板厚度，\(d\) = 极板间距</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">11</td>
+          <td><strong>电容器储能</strong></td>
+          <td class="col-math">\[W = \frac{1}{2}QV = \frac{1}{2}CV^2 = \frac{Q^2}{2C}\]</td>
+          <td class="col-note">三种等价形式</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">12</td>
+          <td><strong>电场能量密度</strong></td>
+          <td class="col-math">\[w_e = \frac{1}{2}\varepsilon E^2 = \frac{1}{2}\vec{E}\cdot\vec{D}\]</td>
+          <td class="col-note">单位体积内的电场能量</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#2563eb">13</td>
+          <td><strong>总电场能量</strong></td>
+          <td class="col-math">\[W = \int_V \frac{1}{2}\varepsilon E^2\,dV\]</td>
+          <td class="col-note">能量分布于电场所在空间</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram-grid">
+    <div class="diagram" style="border-top-color:#2563eb">
+      <svg viewBox="0 0 560 240" width="530" height="225">
+        <defs>
+          <linearGradient id="d1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="100%" stop-color="#93c5fd"/></linearGradient>
+        </defs>
+        <rect x="60" y="25" width="440" height="22" rx="4" fill="#64748b" stroke="#475569" stroke-width="2"/>
+        <rect x="60" y="193" width="440" height="22" rx="4" fill="#64748b" stroke="#475569" stroke-width="2"/>
+        <rect x="60" y="95" width="440" height="56" rx="6" fill="url(#d1)" stroke="#2563eb" stroke-width="1.8" opacity="0.7"/>
+        <text x="280" y="128" text-anchor="middle" fill="#1e40af" font-size="14" font-weight="700">介质板 εᵣ</text>
+        <text x="40" y="40" fill="#dc2626" font-size="13" font-weight="700" text-anchor="end">+Q</text>
+        <text x="40" y="210" fill="#16a34a" font-size="13" font-weight="700" text-anchor="end">−Q</text>
+        <text x="280" y="18" text-anchor="middle" fill="#475569" font-size="11">上极板 (面积 S)</text>
+        <line x1="160" y1="50" x2="160" y2="88" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="280" y1="50" x2="280" y2="88" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="400" y1="50" x2="400" y2="88" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="160" y1="155" x2="160" y2="190" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="280" y1="155" x2="280" y2="190" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <line x1="400" y1="155" x2="400" y2="190" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#a1)"/>
+        <text x="170" y="85" fill="#f59e0b" font-size="11" font-weight="600">E⃗</text>
+        <text x="170" y="185" fill="#f59e0b" font-size="11" font-weight="600">E⃗</text>
+        <line x1="530" y1="25" x2="550" y2="25" stroke="#94a3b8" stroke-width="0.8"/><line x1="530" y1="193" x2="550" y2="193" stroke="#94a3b8" stroke-width="0.8"/><line x1="540" y1="25" x2="540" y2="193" stroke="#94a3b8" stroke-width="0.8"/>
+        <text x="532" y="115" fill="#94a3b8" font-size="10" transform="rotate(90,532,115)">d</text>
+        <defs><marker id="a1" markerWidth="6" markerHeight="4" refX="0" refY="2" orient="auto"><polygon points="0 0,6 2,0 4" fill="#f59e0b"/></marker></defs>
+      </svg>
+      <div class="caption">图 1 · 含介质板的平行板电容器</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 2. 恒定磁场 ═══════════════════════════ -->
+<section class="section sec-2" id="sec-2">
+  <div class="section-head">
+    <div class="section-icon">🧲</div>
+    <div>
+      <h2 class="section-title" style="color:#dc2626">二、恒定磁场</h2>
+      <span class="section-badge">PDF P2–P3 · 基本定律与典型模型</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#dc2626;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#dc2626">14</td>
+          <td><strong>毕奥-萨伐尔定律</strong></td>
+          <td class="col-math">\[d\vec{B} = \frac{\mu_0}{4\pi}\frac{I\,d\vec{l}\times\hat{r}}{r^2}\]</td>
+          <td class="col-note">电流元产生磁场的基元公式</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#dc2626">15</td>
+          <td><strong>无限长直导线磁场</strong></td>
+          <td class="col-math">\[B = \frac{\mu_0 I}{2\pi R}\]</td>
+          <td class="col-note">距导线 \(R\) 处；方向右手定则</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#dc2626">16</td>
+          <td><strong>圆线圈轴线上磁场</strong></td>
+          <td class="col-math">\[B = \frac{\mu_0 I R^2}{2(R^2 + x^2)^{3/2}}\]</td>
+          <td class="col-note">圆心处 \(x=0\): \(B = \mu_0 I/(2R)\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#dc2626">17</td>
+          <td><strong>磁场高斯定理</strong></td>
+          <td class="col-math">\[\oint_S \vec{B} \cdot d\vec{S} = 0\]</td>
+          <td class="col-note">无源场，不存在磁单极子</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#dc2626">18</td>
+          <td><strong>安培环路定理</strong></td>
+          <td class="col-math">\[\oint_L \vec{B} \cdot d\vec{l} = \mu_0 \sum I_{\text{内}}\]</td>
+          <td class="col-note">电流正负由右手定则判定</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram-grid">
+    <div class="diagram" style="border-top-color:#dc2626">
+      <svg viewBox="0 0 280 220" width="260" height="200">
+        <line x1="40" y1="100" x2="150" y2="100" stroke="#dc2626" stroke-width="3.5"/>
+        <polygon points="150,93 170,100 150,107" fill="#dc2626"/>
+        <text x="95" y="88" text-anchor="middle" fill="#dc2626" font-size="13" font-weight="700">I dℓ⃗</text>
+        <circle cx="230" cy="55" r="5" fill="#2563eb"/>
+        <text x="243" y="52" fill="#2563eb" font-size="13" font-weight="700">P</text>
+        <line x1="100" y1="100" x2="226" y2="59" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="5,3"/>
+        <text x="165" y="68" fill="#f59e0b" font-size="12" font-weight="600">r̂</text>
+        <text x="130" y="114" fill="#64748b" font-size="11">θ</text>
+      </svg>
+      <div class="caption">图 2a · 毕奥-萨伐尔定律几何</div>
+    </div>
+    <div class="diagram" style="border-top-color:#dc2626">
+      <svg viewBox="0 0 280 220" width="260" height="200">
+        <circle cx="140" cy="105" r="14" fill="none" stroke="#dc2626" stroke-width="3"/>
+        <text x="140" y="110" text-anchor="middle" fill="#dc2626" font-size="16" font-weight="700">⊙</text>
+        <text x="140" y="128" text-anchor="middle" fill="#dc2626" font-size="11">I</text>
+        <circle cx="140" cy="105" r="52" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="7,4"/>
+        <line x1="140" y1="53" x2="185" y2="65" stroke="#f59e0b" stroke-width="2.2"/>
+        <polygon points="185,65 179,61 182,69" fill="#f59e0b"/>
+        <text x="192" y="66" fill="#f59e0b" font-size="12" font-weight="600">B⃗</text>
+        <text x="100" y="48" fill="#2563eb" font-size="11">环路 L</text>
+        <line x1="140" y1="105" x2="192" y2="105" stroke="#94a3b8" stroke-width="0.8"/>
+        <text x="196" y="108" fill="#94a3b8" font-size="10">R</text>
+      </svg>
+      <div class="caption">图 2b · 安培环路定理示意</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 3. 热力学基础 ═══════════════════════════ -->
+<section class="section sec-3" id="sec-3">
+  <div class="section-head">
+    <div class="section-icon">🔥</div>
+    <div>
+      <h2 class="section-title" style="color:#ea580c">三、热力学基础</h2>
+      <span class="section-badge">PDF P4–P8 · 状态方程、热一律、过程、循环、熵</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#ea580c;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#ea580c">19</td>
+          <td><strong>理想气体状态方程</strong></td>
+          <td class="col-math">\[PV = \nu RT\]</td>
+          <td class="col-note">\(\nu\) 摩尔数，\(R = 8.314\ \text{J/(mol·K)}\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">20</td>
+          <td><strong>热力学第一定律</strong></td>
+          <td class="col-math">\[Q = \Delta E + A\]</td>
+          <td class="col-note">吸热 = 内能增量 + 对外做功</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">21</td>
+          <td><strong>准静态做功</strong></td>
+          <td class="col-math">\[A = \int_{V_1}^{V_2} P\,dV\]</td>
+          <td class="col-note">P-V 图上曲线下面积</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">22</td>
+          <td><strong>摩尔热容</strong></td>
+          <td class="col-math">\[C_{V,m}\!=\!\frac{i}{2}R,\ C_{p,m}\!=\!C_{V,m}\!+\!R,\ \gamma\!=\!\frac{C_p}{C_v}\]</td>
+          <td class="col-note">单原子 \(i=3\)，刚性双原子 \(i=5\)，非刚性 \(i=7\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">23</td>
+          <td><strong>内能增量</strong></td>
+          <td class="col-math">\[\Delta E = \nu C_{V,m}\Delta T,\quad E = \frac{i}{2}\nu RT\]</td>
+          <td class="col-note">理想气体内能仅与温度有关</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Process Table (P6) -->
+  <div class="process-table">
+    <table>
+      <thead>
+        <tr><th colspan="7" style="font-size:0.85rem">📋 公式 24 · 准静态过程汇总（P6 完整版）</th></tr>
+        <tr><th>过程</th><th>过程方程</th><th>做功 \(A\)</th><th>吸热 \(Q\)</th><th>内能增量 \(\Delta E\)</th><th>摩尔热容</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="proc-name" style="color:#2563eb">等容</td>
+          <td>\(V = C\)</td><td>\(0\)</td><td>\(\nu C_{V,m}\Delta T\)</td><td>\(\nu C_{V,m}\Delta T\)</td><td>\(C_{V,m}\)</td>
+        </tr>
+        <tr>
+          <td class="proc-name" style="color:#dc2626">等压</td>
+          <td>\(P = C\)</td><td>\(P(V_2-V_1)\)</td><td>\(\nu C_{p,m}\Delta T\)</td><td>\(\nu C_{V,m}\Delta T\)</td><td>\(C_{p,m}\)</td>
+        </tr>
+        <tr>
+          <td class="proc-name" style="color:#7c3aed">等温</td>
+          <td>\(PV = C\)</td><td>\(\nu RT\ln\frac{V_2}{V_1}\)</td><td>同左</td><td>\(0\)</td><td>\(\infty\)</td>
+        </tr>
+        <tr>
+          <td class="proc-name" style="color:#ea580c">绝热</td>
+          <td>\(PV^\gamma = C\)</td><td>\(\frac{P_2V_2-P_1V_1}{1-\gamma}\)</td><td>\(0\)</td><td>\(\nu C_{V,m}\Delta T\)</td><td>\(0\)</td>
+        </tr>
+        <tr>
+          <td class="proc-name" style="color:#059669">多方</td>
+          <td>\(PV^n = C\)</td><td>\(\frac{P_2V_2-P_1V_1}{1-n}\)</td><td>\(\nu C_{n,m}\Delta T\)</td><td>\(\nu C_{V,m}\Delta T\)</td><td>\(C_{n,m}\!=\!\frac{n-\gamma}{n-1}C_{V,m}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#ea580c;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#ea580c">25</td>
+          <td><strong>绝热方程三种形式</strong></td>
+          <td class="col-math">\[PV^\gamma = C_1;\ V^{\gamma-1}T = C_2;\ P^{\gamma-1}T^{-\gamma} = C_3\]</td>
+          <td class="col-note">三式等价，由状态方程互推</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">26</td>
+          <td><strong>绝热自由膨胀</strong></td>
+          <td class="col-math">\[Q=0, A=0 \Rightarrow \Delta E=0 \Rightarrow \Delta T=0\]</td>
+          <td class="col-note">初末态 \(P_1V_1=P_2V_2\)，过程不可逆</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">27</td>
+          <td><strong>热机效率</strong></td>
+          <td class="col-math">\[\eta = \frac{A}{Q_1} = 1 - \frac{Q_2}{Q_1}\]</td>
+          <td class="col-note">\(Q_1\) 吸热，\(Q_2\) 放热（取绝对值）</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">28</td>
+          <td><strong>卡诺热机效率</strong></td>
+          <td class="col-math">\[\eta_c = 1 - \frac{T_2}{T_1}\]</td>
+          <td class="col-note">仅与两热源温度有关，是可逆热机最高效率</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">29</td>
+          <td><strong>卡诺制冷系数</strong></td>
+          <td class="col-math">\[\varepsilon = \frac{Q_2}{Q_1-Q_2} = \frac{T_2}{T_1-T_2}\]</td>
+          <td class="col-note">\(Q_2\) 为从低温热源吸热</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">30</td>
+          <td><strong>熵定义（可逆）</strong></td>
+          <td class="col-math">\[dS = \frac{dQ_{\text{可逆}}}{T},\quad \Delta S = \int_A^B \frac{dQ}{T}\]</td>
+          <td class="col-note">熵是状态函数，与路径无关</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#ea580c">31</td>
+          <td><strong>熵增原理</strong></td>
+          <td class="col-math">\[\Delta S > \int\frac{dQ}{T}\;\text{(不可逆)};\ \Delta S_{\text{孤立}} \ge 0\]</td>
+          <td class="col-note">孤立系统熵永不减少，可逆取等号</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Carnot Diagram -->
+  <div class="diagram" style="border-top-color:#ea580c; margin-top:4px;">
+    <svg viewBox="0 0 520 320" width="500" height="300">
+      <line x1="55" y1="15" x2="55" y2="285" stroke="#94a3b8" stroke-width="1.6"/>
+      <line x1="55" y1="285" x2="500" y2="285" stroke="#94a3b8" stroke-width="1.6"/>
+      <text x="278" y="312" fill="#64748b" font-size="13">V</text>
+      <text x="28" y="155" fill="#64748b" font-size="13" transform="rotate(-90,28,155)">P</text>
+      <path d="M 90,100 Q 150,88 230,95 Q 290,99 330,115" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+      <path d="M 330,115 Q 375,145 405,185 Q 425,215 435,235" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <path d="M 435,235 Q 340,260 230,252 Q 150,246 110,238" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+      <path d="M 110,238 Q 95,200 88,165 Q 84,135 90,100" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <text x="340" y="108" fill="#dc2626" font-size="12" font-weight="700">T₁ 等温</text>
+      <text x="440" y="248" fill="#16a34a" font-size="12" font-weight="700">T₂ 等温</text>
+      <text x="200" y="170" fill="#f59e0b" font-size="11">绝热</text>
+      <text x="70" y="250" fill="#f59e0b" font-size="11">绝热</text>
+      <circle cx="90" cy="100" r="4.5" fill="#1e293b" stroke="#fff" stroke-width="1.5"/><text x="68" y="96" fill="#1e293b" font-size="12" font-weight="700">1</text>
+      <circle cx="330" cy="115" r="4.5" fill="#1e293b" stroke="#fff" stroke-width="1.5"/><text x="338" y="105" fill="#1e293b" font-size="12" font-weight="700">2</text>
+      <circle cx="435" cy="235" r="4.5" fill="#1e293b" stroke="#fff" stroke-width="1.5"/><text x="443" y="248" fill="#1e293b" font-size="12" font-weight="700">3</text>
+      <circle cx="110" cy="238" r="4.5" fill="#1e293b" stroke="#fff" stroke-width="1.5"/><text x="88" y="252" fill="#1e293b" font-size="12" font-weight="700">4</text>
+      <text x="148" y="92" fill="#dc2626" font-size="11">Q₁(吸)</text>
+      <text x="275" y="272" fill="#16a34a" font-size="11">Q₂(放)</text>
+    </svg>
+    <div class="caption">图 3 · 卡诺循环 P-V 图 — 两条等温线 + 两条绝热线</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 4. 气体动理论 ═══════════════════════════ -->
+<section class="section sec-4" id="sec-4">
+  <div class="section-head">
+    <div class="section-icon">💨</div>
+    <div>
+      <h2 class="section-title" style="color:#7c3aed">四、气体动理论</h2>
+      <span class="section-badge">PDF P9–P11 · 压强微观公式、速率分布、自由程</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#7c3aed;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">32</td>
+          <td><strong>分子数密度</strong></td>
+          <td class="col-math">\[n = \frac{N}{V}\]</td>
+          <td class="col-note">单位体积分子数</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">33</td>
+          <td><strong>压强微观公式</strong></td>
+          <td class="col-math">\[P = nkT = \frac{1}{3}nm\overline{v^2}\]</td>
+          <td class="col-note">\(k = 1.38\times10^{-23}\ \text{J/K}\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">34</td>
+          <td><strong>温度与平动动能</strong></td>
+          <td class="col-math">\[\frac{1}{2}m\overline{v^2} = \frac{3}{2}kT\]</td>
+          <td class="col-note">温度是分子平均平动动能的量度</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">35</td>
+          <td><strong>能量均分定理</strong></td>
+          <td class="col-math">\[\overline{E}_{\text{分子}} = \frac{i}{2}kT,\quad E = \nu\frac{i}{2}RT\]</td>
+          <td class="col-note">每自由度 \(\frac12 kT\)；\(i = t+r+2s\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">36</td>
+          <td><strong>三大特征速率</strong></td>
+          <td class="col-math">\[v_p\!=\!\sqrt{\frac{2kT}{m}},\ \bar{v}\!=\!\sqrt{\frac{8kT}{\pi m}},\ v_{\text{rms}}\!=\!\sqrt{\frac{3kT}{m}}\]</td>
+          <td class="col-note">\(v_p < \bar{v} < v_{\text{rms}}\) ≈ \(1:1.128:1.225\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">37</td>
+          <td><strong>平均自由程</strong></td>
+          <td class="col-math">\[\lambda = \frac{1}{\sqrt{2}\pi d^2 n} = \frac{kT}{\sqrt{2}\pi d^2 P}\]</td>
+          <td class="col-note">\(d\) 为分子有效直径</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#7c3aed">38</td>
+          <td><strong>平均碰撞频率</strong></td>
+          <td class="col-math">\[Z = \frac{\bar{v}}{\lambda}\]</td>
+          <td class="col-note">单位时间平均碰撞次数</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram" style="border-top-color:#7c3aed">
+    <svg viewBox="0 0 540 260" width="520" height="245">
+      <defs>
+        <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7c3aed" stop-opacity="0.3"/><stop offset="100%" stop-color="#7c3aed" stop-opacity="0.02"/></linearGradient>
+      </defs>
+      <line x1="45" y1="225" x2="520" y2="225" stroke="#94a3b8" stroke-width="1.4"/>
+      <line x1="45" y1="225" x2="45" y2="18" stroke="#94a3b8" stroke-width="1.4"/>
+      <text x="282" y="252" fill="#64748b" font-size="13">v</text>
+      <text x="26" y="128" fill="#64748b" font-size="13" transform="rotate(-90,26,128)">f(v)</text>
+      <path d="M 54,222 Q 78,180 108,90 Q 144,28 195,16 Q 255,9 315,22 Q 385,42 435,80 Q 488,125 518,175 Q 525,198 523,218" fill="url(#mg)" stroke="#7c3aed" stroke-width="2.8"/>
+      <line x1="195" y1="16" x2="195" y2="225" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <text x="182" y="242" fill="#f59e0b" font-size="12" font-weight="700">vₚ</text>
+      <line x1="222" y1="28" x2="222" y2="225" stroke="#dc2626" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <text x="228" y="242" fill="#dc2626" font-size="12" font-weight="600">v̄</text>
+      <line x1="248" y1="42" x2="248" y2="225" stroke="#16a34a" stroke-width="1.3" stroke-dasharray="4,3"/>
+      <text x="255" y="242" fill="#16a34a" font-size="12" font-weight="600">v_rms</text>
+      <rect x="370" y="24" width="11" height="11" rx="2" fill="#f59e0b"/><text x="386" y="35" fill="#334155" font-size="11">最概然速率</text>
+      <rect x="370" y="44" width="11" height="11" rx="2" fill="#dc2626"/><text x="386" y="55" fill="#334155" font-size="11">平均速率</text>
+      <rect x="370" y="64" width="11" height="11" rx="2" fill="#16a34a"/><text x="386" y="75" fill="#334155" font-size="11">方均根速率</text>
+    </svg>
+    <div class="caption">图 4 · 麦克斯韦速率分布函数 \(f(v)\) — 三个特征速率标记</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 5. 狭义相对论 ═══════════════════════════ -->
+<section class="section sec-5" id="sec-5">
+  <div class="section-head">
+    <div class="section-icon">⚛️</div>
+    <div>
+      <h2 class="section-title" style="color:#0891b2">五、狭义相对论</h2>
+      <span class="section-badge">PDF P12–P13 · 洛伦兹变换</span>
+    </div>
+  </div>
+
+  <div class="highestlight-card" style="background:linear-gradient(135deg,#ecfeff 0%,#f0f9ff 100%);border-color:#a5f3fc;">
+    <div class="hl-label" style="color:#0891b2">公式 39</div>
+    <div class="hl-title" style="color:#0e7490">洛伦兹变换（S' 相对 S 沿 x 轴以速度 v 运动）</div>
+    <div class="math">\[ x' = \gamma(x - vt),\qquad t' = \gamma\left(t - \frac{vx}{c^2}\right),\qquad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}} \]</div>
+    <div class="hl-note">逆变换：\(x = \gamma(x' + vt'),\ t = \gamma(t' + vx'/c^2)\)。当 \(v \ll c\) 时 \(\gamma \to 1\)，退化为伽利略变换。</div>
+  </div>
+
+  <div class="diagram" style="border-top-color:#0891b2">
+    <svg viewBox="0 0 500 220" width="480" height="210">
+      <line x1="40" y1="35" x2="40" y2="185" stroke="#94a3b8" stroke-width="1.5"/>
+      <line x1="40" y1="185" x2="290" y2="185" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="28" y="28" fill="#dc2626" font-size="15" font-weight="700">S</text>
+      <text x="295" y="182" fill="#64748b" font-size="12">x</text>
+      <circle cx="40" cy="185" r="3" fill="#dc2626"/>
+      <line x1="40" y1="65" x2="40" y2="215" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <line x1="40" y1="215" x2="290" y2="215" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="28" y="58" fill="#0891b2" font-size="15" font-weight="700">S'</text>
+      <text x="295" y="212" fill="#64748b" font-size="12">x'</text>
+      <circle cx="155" cy="215" r="3" fill="#0891b2"/>
+      <text x="148" y="208" fill="#0891b2" font-size="12">O'</text>
+      <line x1="40" y1="200" x2="155" y2="200" stroke="#f59e0b" stroke-width="2.2"/>
+      <polygon points="155,194 172,200 155,206" fill="#f59e0b"/>
+      <text x="90" y="194" fill="#f59e0b" font-size="13" font-weight="700">v⃗</text>
+    </svg>
+    <div class="caption">图 5 · 洛伦兹变换：S' 相对 S 以速度 v 沿 x 轴运动</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 6. 流体力学 ═══════════════════════════ -->
+<section class="section sec-6" id="sec-6">
+  <div class="section-head">
+    <div class="section-icon">💧</div>
+    <div>
+      <h2 class="section-title" style="color:#059669">六、流体力学</h2>
+      <span class="section-badge">PDF P14 · 黏性流体、泊肃叶、斯托克斯</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#059669;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#059669">40</td>
+          <td><strong>黏性伯努利方程</strong></td>
+          <td class="col-math">\[P_1 + \rho g h_1 + \frac12\rho v_1^2 = P_2 + \rho g h_2 + \frac12\rho v_2^2 + W_{\text{阻}}\]</td>
+          <td class="col-note">\(W_{\text{阻}}\) 为单位体积克服黏性阻力做功</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#059669">41</td>
+          <td><strong>泊肃叶定律</strong></td>
+          <td class="col-math">\[Q = \frac{\pi R^4 \Delta P}{8\eta L}\]</td>
+          <td class="col-note">水平圆管层流；\(Q\) 体积流量</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#059669">42</td>
+          <td><strong>流阻</strong></td>
+          <td class="col-math">\[R_f = \frac{\Delta P}{Q} = \frac{8\eta L}{\pi R^4}\]</td>
+          <td class="col-note">串联加和，并联倒数加和</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#059669">43</td>
+          <td><strong>斯托克斯阻力</strong></td>
+          <td class="col-math">\[F_f = 6\pi\eta r v\]</td>
+          <td class="col-note">小球低速在黏性流体中运动所受阻力</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#059669">44</td>
+          <td><strong>沉降速度</strong></td>
+          <td class="col-math">\[v_t = \frac{2gr^2(\rho - \rho')}{9\eta}\]</td>
+          <td class="col-note">重力、浮力、黏滞阻力三者平衡</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram" style="border-top-color:#059669">
+    <svg viewBox="0 0 540 200" width="520" height="190">
+      <rect x="20" y="28" width="500" height="18" rx="4" fill="#94a3b8"/>
+      <rect x="20" y="154" width="500" height="18" rx="4" fill="#94a3b8"/>
+      <defs><clipPath id="pc"><rect x="20" y="46" width="500" height="108"/></clipPath></defs>
+      <g clip-path="url(#pc)">
+        <line x1="50" y1="145" x2="50" y2="90" stroke="#059669" stroke-width="2"/>
+        <line x1="130" y1="145" x2="130" y2="70" stroke="#059669" stroke-width="3"/>
+        <line x1="210" y1="145" x2="210" y2="60" stroke="#059669" stroke-width="3.8"/>
+        <line x1="280" y1="145" x2="280" y2="55" stroke="#059669" stroke-width="4.5"/>
+        <line x1="350" y1="145" x2="350" y2="60" stroke="#059669" stroke-width="3.8"/>
+        <line x1="430" y1="145" x2="430" y2="70" stroke="#059669" stroke-width="3"/>
+        <line x1="510" y1="145" x2="510" y2="90" stroke="#059669" stroke-width="2"/>
+        <path d="M 50,90 Q 280,52 510,90" fill="none" stroke="#059669" stroke-width="1.3" stroke-dasharray="5,3" opacity="0.5"/>
+      </g>
+      <text x="280" y="22" text-anchor="middle" fill="#475569" font-size="11">管壁</text>
+      <text x="280" y="186" text-anchor="middle" fill="#475569" font-size="11">管壁</text>
+      <text x="522" y="95" fill="#059669" font-size="11" font-weight="600">v(r) 抛物线</text>
+      <text x="15" y="16" fill="#dc2626" font-size="11" font-weight="600">P₁ 高</text>
+      <text x="460" y="16" fill="#16a34a" font-size="11" font-weight="600">P₂ 低→</text>
+    </svg>
+    <div class="caption">图 6 · 泊肃叶层流 — 圆管内速度呈抛物线分布</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 7. 刚体转动 ═══════════════════════════ -->
+<section class="section sec-7" id="sec-7">
+  <div class="section-head">
+    <div class="section-icon">🔄</div>
+    <div>
+      <h2 class="section-title" style="color:#d97706">七、刚体转动</h2>
+      <span class="section-badge">PDF P16 · 转动动能、滚动、角动量</span>
+    </div>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead style="background:#d97706;">
+        <tr><th style="width:48px">#</th><th>公式名称</th><th style="width:52%">公式</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-id" style="color:#d97706">45</td>
+          <td><strong>转动动能</strong></td>
+          <td class="col-math">\[E_k = \frac{1}{2}J\omega^2\]</td>
+          <td class="col-note">\(J\) 转动惯量，与平动 \(\frac12 mv^2\) 对应</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#d97706">46</td>
+          <td><strong>滚动动能</strong></td>
+          <td class="col-math">\[E_k = \frac{1}{2}Mv^2 + \frac{1}{2}J\omega^2\]</td>
+          <td class="col-note">平动 + 转动；纯滚动 \(v = \omega R\)</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#d97706">47</td>
+          <td><strong>力矩做功与功率</strong></td>
+          <td class="col-math">\[W = \int_{\theta_1}^{\theta_2} M\,d\theta,\quad P = M\omega\]</td>
+          <td class="col-note">与平动 \(W=\int F dx,\ P=Fv\) 类比</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#d97706">48</td>
+          <td><strong>机械能守恒（含重力）</strong></td>
+          <td class="col-math">\[\frac{1}{2}J\omega^2 + mgy = \text{恒量}\]</td>
+          <td class="col-note">仅保守力做功时成立</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#d97706">49</td>
+          <td><strong>角动量定理</strong></td>
+          <td class="col-math">\[M\,dt = dL\]</td>
+          <td class="col-note">冲量矩 = 角动量增量</td>
+        </tr>
+        <tr>
+          <td class="col-id" style="color:#d97706">50</td>
+          <td><strong>角动量守恒</strong></td>
+          <td class="col-math">\[L = J\omega = \text{恒量}\quad(M=0)\]</td>
+          <td class="col-note">合外力矩为零时角动量守恒</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram" style="border-top-color:#d97706">
+    <svg viewBox="0 0 520 210" width="500" height="200">
+      <line x1="20" y1="168" x2="500" y2="40" stroke="#94a3b8" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="20" y1="168" x2="520" y2="168" stroke="#cbd5e1" stroke-width="3"/>
+      <circle cx="310" cy="112" r="33" fill="#fff" stroke="#d97706" stroke-width="3"/>
+      <line x1="310" y1="112" x2="330" y2="82" stroke="#f59e0b" stroke-width="1.8"/>
+      <text x="335" y="78" fill="#f59e0b" font-size="12" font-weight="600">R</text>
+      <path d="M 328,86 A 28,28 0 0,1 336,106" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+      <polygon points="336,106 331,101 335,109" fill="#dc2626"/>
+      <text x="340" y="115" fill="#dc2626" font-size="12" font-weight="600">ω</text>
+      <line x1="310" y1="148" x2="362" y2="130" stroke="#16a34a" stroke-width="2.5"/>
+      <polygon points="362,130 355,126 359,134" fill="#16a34a"/>
+      <text x="368" y="128" fill="#16a34a" font-size="13" font-weight="700">v⃗</text>
+      <line x1="310" y1="78" x2="310" y2="56" stroke="#7c3aed" stroke-width="2"/>
+      <polygon points="310,56 305,64 315,64" fill="#7c3aed"/>
+      <text x="315" y="62" fill="#7c3aed" font-size="12" font-weight="600">mg⃗</text>
+      <text x="120" y="132" fill="#64748b" font-size="13">θ</text>
+      <text x="310" y="175" fill="#64748b" font-size="11">纯滚动: v = ωR</text>
+    </svg>
+    <div class="caption">图 7 · 圆柱体沿斜面纯滚动 — 平动+转动</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ 8. 例题补充 ═══════════════════════════ -->
+<section class="section sec-8" id="sec-8">
+  <div class="section-head">
+    <div class="section-icon">📐</div>
+    <div>
+      <h2 class="section-title" style="color:#db2777">八、例题补充</h2>
+      <span class="section-badge">PDF P17–P18 · 典型例题结果</span>
+    </div>
+  </div>
+
+  <div class="highlight-card" style="background:linear-gradient(135deg,#fdf2f8 0%,#fff1f2 100%);border-color:#fbcfe8;">
+    <div class="hl-label" style="color:#db2777">公式 51</div>
+    <div class="hl-title" style="color:#9d174d">均匀带电圆环轴线上的电场（P17）</div>
+    <div class="math">\[ E = \frac{1}{4\pi\varepsilon_0} \cdot \frac{Q x}{(R^2 + x^2)^{3/2}} \quad \text{(方向沿轴线)} \]</div>
+    <div class="hl-note">总电量 \(Q\)，半径 \(R\)，\(x\) 为轴线上距环心距离。\(x=0\) 处 \(E=0\)；\(x \gg R\) 时退化为点电荷场。</div>
+  </div>
+
+  <div class="highlight-card" style="background:linear-gradient(135deg,#fdf2f8 0%,#fff1f2 100%);border-color:#fbcfe8;">
+    <div class="hl-label" style="color:#db2777">公式 52</div>
+    <div class="hl-title" style="color:#9d174d">无限长载流圆柱导体的磁场分布（P18）</div>
+    <div class="math">\[ \begin{aligned} \text{内部 }(r < R)&: \quad B = \frac{\mu_0 I}{2\pi R^2}\cdot r \quad (\text{与距离成正比}) \\ \text{外部 }(r \ge R)&: \quad B = \frac{\mu_0 I}{2\pi r} \quad (\text{退化为无限长直导线}) \end{aligned} \]</div>
+    <div class="hl-note">电流 \(I\) 在截面上均匀分布，\(R\) 为圆柱半径。这是安培环路定理的典型应用，内部场线性增大，外部场按 \(1/r\) 衰减。</div>
+  </div>
+
+  <div class="diagram-grid">
+    <div class="diagram" style="border-top-color:#db2777">
+      <svg viewBox="0 0 280 250" width="260" height="230">
+        <ellipse cx="140" cy="145" rx="85" ry="28" fill="none" stroke="#db2777" stroke-width="2.8"/>
+        <circle cx="55" cy="145" r="2.5" fill="#db2777"/><circle cx="225" cy="145" r="2.5" fill="#db2777"/>
+        <circle cx="140" cy="117" r="2.5" fill="#db2777"/><circle cx="140" cy="173" r="2.5" fill="#db2777"/>
+        <text x="235" y="135" fill="#db2777" font-size="12" font-weight="700">+Q</text>
+        <line x1="20" y1="145" x2="260" y2="145" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="6,3"/>
+        <text x="267" y="143" fill="#64748b" font-size="11">x</text>
+        <circle cx="210" cy="145" r="4.5" fill="#2563eb"/>
+        <text x="220" y="136" fill="#2563eb" font-size="12" font-weight="700">P</text>
+        <line x1="218" y1="145" x2="250" y2="145" stroke="#f59e0b" stroke-width="2.5"/>
+        <polygon points="250,145 244,141 244,149" fill="#f59e0b"/>
+        <text x="233" y="136" fill="#f59e0b" font-size="11" font-weight="600">E⃗</text>
+        <line x1="145" y1="155" x2="205" y2="155" stroke="#94a3b8" stroke-width="0.8"/>
+        <text x="173" y="167" fill="#64748b" font-size="11">x</text>
+        <line x1="140" y1="145" x2="140" y2="117" stroke="#94a3b8" stroke-width="0.8"/>
+        <text x="108" y="132" fill="#64748b" font-size="11">R</text>
+      </svg>
+      <div class="caption">图 8a · 均匀带电圆环轴线上电场</div>
+    </div>
+    <div class="diagram" style="border-top-color:#db2777">
+      <svg viewBox="0 0 280 250" width="260" height="230">
+        <circle cx="140" cy="135" r="50" fill="#fff" stroke="#db2777" stroke-width="2.5"/>
+        <text x="140" y="100" fill="#db2777" font-size="11" font-weight="700">I (均匀)</text>
+        <line x1="140" y1="135" x2="175" y2="105" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,2"/>
+        <circle cx="175" cy="105" r="3" fill="#f59e0b"/>
+        <text x="182" y="106" fill="#f59e0b" font-size="10">r</text>
+        <line x1="140" y1="135" x2="240" y2="135" stroke="#dc2626" stroke-width="1" stroke-dasharray="4,2"/>
+        <circle cx="240" cy="135" r="3" fill="#dc2626"/>
+        <text x="246" y="134" fill="#dc2626" font-size="10">r</text>
+        <text x="185" y="148" fill="#db2777" font-size="11" font-weight="700">R</text>
+        <!-- B(r) inset -->
+        <rect x="15" y="195" width="110" height="45" rx="4" fill="#fdf2f8" stroke="#fbcfe8" stroke-width="1"/>
+        <text x="70" y="210" text-anchor="middle" fill="#64748b" font-size="8">B(r)</text>
+        <line x1="22" y1="232" x2="120" y2="232" stroke="#cbd5e1" stroke-width="0.5"/>
+        <line x1="22" y1="232" x2="22" y2="200" stroke="#cbd5e1" stroke-width="0.5"/>
+        <line x1="22" y1="232" x2="72" y2="210" stroke="#f59e0b" stroke-width="1.5"/>
+        <path d="M 72,210 Q 98,202 115,204" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+        <line x1="72" y1="232" x2="72" y2="235" stroke="#cbd5e1" stroke-width="0.5"/>
+        <text x="72" y="241" text-anchor="middle" fill="#64748b" font-size="7">R</text>
+      </svg>
+      <div class="caption">图 8b · 载流圆柱导体截面 + B(r) 曲线</div>
+    </div>
+  </div>
+</section>
+
+</main>
+</div>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+
+<script>
+// KaTeX render
+renderMathInElement(document.body, {
+  delimiters: [
+    {left: '\\[', right: '\\]', display: true},
+    {left: '\\(', right: '\\)', display: false}
+  ],
+  throwOnError: false
+});
+
+// Back to top
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 500));
+
+// Mobile sidebar
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('show');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+}
+
+// Active nav on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+});
+</script>
+
+</body>
+</html>
